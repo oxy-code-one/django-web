@@ -8,7 +8,10 @@ import os
 pwd = os.path.dirname(__file__)
 
 def index(request, *args, **kwargs):
-    return render(request,'static/index.html')
+    sock = request._stream.stream.stream.raw._sock
+    client_ip, port = sock.getpeername()
+    html = "IP: "+client_ip+" PORT:"+str(port)
+    return HttpResponse(html)
 
 def image(request, *args, **kwargs):
     img = Image.open(pwd+'/image.jpeg')
