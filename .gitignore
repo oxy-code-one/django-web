@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+bin
+log
+lib
+db.sqlite3
+__pycache__
+static/admin/*
