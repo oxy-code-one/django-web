@@ -1,5 +1,6 @@
 from io import BytesIO
 from django.shortcuts import render
+from django.views.generic import TemplateView
 from django.http import HttpResponse
 from PIL import Image
 import os
@@ -16,4 +17,6 @@ def image(request, *args, **kwargs):
     response = HttpResponse(fomatted_img.getvalue(),content_type='image/jpeg')
     response['Content-Disposition'] = 'attachment; filename="lol.jpeg"'
     return response
-    
+
+class HomePageView(TemplateView):
+    template_name = "home.html"
